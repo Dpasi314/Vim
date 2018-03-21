@@ -1,4 +1,4 @@
-"	Remap escape to ;; for pinky mercy
+"Remap escape to ;; for pinky mercy
 let mapleader=";"
 noremap <leader><leader> <Esc> 
 inoremap <leader><leader> <Esc>:w<CR>
@@ -71,6 +71,9 @@ xnoremap ð c()<left><esc>p
 
 "	Visually select word in normal mode [a'q]
 inoremap ñ <esc>viw
+
+"	Visual cut [a'c]
+xnoremap ã xi
 
 
 "Open / Close Tree File Exloprer

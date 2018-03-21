@@ -27,6 +27,7 @@ set gdefault
 "	Set search hightlight colors
 " 	Use :nohlsearch to turn off
 hi hlsearch cterm=bold,italic,reverse ctermbg=darkgray
+
 syntax on
 
 
@@ -62,22 +63,30 @@ set omnifunc=syntaxcomplete#Complete
 set completeopt=menuone
 
 "	Enable Folding
-set foldenable
+set nofoldenable
 set foldmethod=marker
-"
+"	Lol I'm going to forget about this, and be shocked I came up with such
+"	dumb names lol
+set foldmarker=***Start***,***End***
+
 "	<space> to create open/close fold
 nnoremap <space> za
 
-"	[a'c] to create comment fold"{{{
-xnoremap ã zf
+"	[a'z] to create comment fold
+xnoremap ú o <up> o <down> zf
 
-"	[a'z] create a fold with added title
-xnoremap ú <Esc>O [Fold Title]<cr> <Esc>gv<cr> zf<cr>
+
 
 "	[a'x]
 nnoremap ø zd 
-"	}}}
+"
 
+"	[a'y]
+nnoremap ù "+y
+
+"	[a'p]
+nnoremap ð "*p
+inoremap ð <Esc>"*pi<Right>
 
 "	Pathogen Support
 execute pathogen#infect()
