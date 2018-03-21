@@ -61,10 +61,10 @@ inoremap <leader>8  /**/<left><left><cr>*<cr><up><right>
 "        expression inoremap with repeat:    inoremap <expr>        <input keys>    '<an output key alone up here>' .repeat('<and then repeated output keys>', 3)
 
 
-"	Easier way to make pretty comments, [C'/]
+"	Easier way to make pretty comments, [CTRL'/]
 inoremap   /*  */<left><left><left>
 " *** avk: this^ mapping rewritten with <expr> & repeat():
-inoremap <expr>   '/*  */' .repeat('<left>',3)
+"inoremap <expr>   '/*  */' .repeat('<left>',3)
 
 
 
@@ -74,7 +74,8 @@ inoremap <expr>   '/*  */' .repeat('<left>',3)
 "	KATY QUESTION: making this generic so that [a'_] will do same thing
 "	with _
 "	where _ is a generic character
-xnoremap ð c()<left><esc>p
+
+"xnoremap ð c()<left><esc>p
 
 " *** avk: 
 "	1. problem:
@@ -106,6 +107,10 @@ function!	SurroundVisualSelection()	abort	" names of user functions unfortunatel
 	let aliases[')']	= '()'
 	let aliases['<']	= '<>'
 	let aliases['>']	= '<>'
+	let aliases['[']	= '[]'
+	let aliases[']']	= '[]'
+	let aliases['{']	= '{}'
+	let aliases['}']	= '{}'
 	" |	|	and then this:
 	if has_key(aliases, char)
 		let pair = aliases[char]
@@ -187,8 +192,6 @@ xnoremap <buffer> <expr> ð	SurroundVisualSelection()
 "	- display a map of the special aliases when waiting for input after the user presses [a'P]
 "	- ...???
 " 
-
-
 
 "	Visually select word in normal mode [a'q]
 inoremap ñ <esc>viw
